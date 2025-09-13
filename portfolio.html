@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- CSS Styles -->
+    <style>
+        :root {
+            --primary-color: #00c3ff; /* A vibrant blue for accents */
+            --background-color: #121212; /* A very dark grey for the background */
+            --surface-color: #1e1e1e; /* A slightly lighter grey for cards/surfaces */
+            --text-color: #e0e0e0; /* A light grey for body text */
+            --heading-color: #ffffff; /* White for main headings */
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--surface-color);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .hero-text-container {
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 .wave {
+            display: inline-block;
+            animation: wave-animation 2.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--surface-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .project-info p {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--heading-color);
+        }
+
+        .project-links i {
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+        
+        .contact-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links a {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--surface-color);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes wave-animation {
+            0% { transform: rotate( 0.0deg) }
+            10% { transform: rotate(14.0deg) }
+            20% { transform: rotate(-8.0deg) }
+            30% { transform: rotate(14.0deg) }
+            40% { transform: rotate(-4.0deg) }
+            50% { transform: rotate(10.0deg) }
+            60% { transform: rotate( 0.0deg) }
+            100% { transform: rotate( 0.0deg) }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- This is where our React app will be rendered -->
+    <div id="root"></div>
+
+    <!-- React and Babel CDN scripts -->
+    <!-- These must be in the body, after the root div -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Your React code -->
+    <!-- The type="text/babel" is crucial for this to work -->
+    <script type="text/babel">
+
+        //======== EDIT YOUR PORTFOLIO DATA HERE ========//
+        
+        const portfolioData = {
+            name: "Jane Doe",
+            title: "Frontend Developer & UI/UX Enthusiast",
+            about: "I'm a passionate developer with a love for creating intuitive, dynamic user experiences. With a strong foundation in modern web technologies, I specialize in building beautiful and functional websites and applications. When I'm not coding, I enjoy exploring new design trends and contributing to open-source projects.",
+            contact: {
+                email: "jane.doe@example.com",
+                social: {
+                    github: "https://github.com/",
+                    linkedin: "https://www.linkedin.com/",
+                    twitter: "https://twitter.com/",
+                }
+            },
+            projects: [
+                {
+                    title: "E-Commerce Platform",
+                    description: "A fully responsive e-commerce site built with React, featuring a shopping cart, product filtering, and a clean, modern UI.",
+                    imageUrl: "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    liveUrl: "#", // Link to the live project
+                    repoUrl: "#" // Link to the GitHub repository
+                },
+                {
+                    title: "Data Visualization Dashboard",
+                    description: "An interactive dashboard for visualizing complex data sets using D3.js and React, providing insights through charts and graphs.",
+                    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    liveUrl: "#",
+                    repoUrl: "#"
+                },
+                {
+                    title: "Task Management App",
+                    description: "A sleek and simple task management application to help users organize their daily tasks with a drag-and-drop interface.",
+                    imageUrl: "https://images.unsplash.com/photo-1579626411444-5396d1045aa5?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600",
+                    liveUrl: "#",
+                    repoUrl: "#"
+                }
+            ]
+        };
+        //=================================================//
+
+
+        const Header = ({ name, title }) => (
+            <header className="hero">
+                <div className="hero-text-container">
+                    <h1>Hi, I'm {name} <span className="wave">👋</span></h1>
+                    <p>{title}</p>
+                </div>
+            </header>
+        );
+
+        const About = ({ content }) => (
+            <section id="about" className="section">
+                <div className="container">
+                    <h2 className="section-title">About <span>Me</span></h2>
+                    <div className="about-content">
+                        <p>{content}</p>
+                    </div>
+                </div>
+            </section>
+        );
+        
+        const ProjectCard = ({ project }) => (
+            <div className="project-card">
+                <img src={project.imageUrl} alt={project.title} />
+                <div className="project-info">
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <div className="project-links">
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <i className="fas fa-globe"></i> Live Demo
+                        </a>
+                        <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                            <i className="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const Projects = ({ projects }) => (
+            <section id="projects" className="section">
+                <div className="container">
+                    <h2 className="section-title">My <span>Projects</span></h2>
+                    <div className="project-grid">
+                        {projects.map((project, index) => (
+                            <ProjectCard key={index} project={project} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Contact = ({ email, social }) => (
+            <section id="contact" className="section">
+                <div className="container">
+                    <h2 className="section-title">Get In <span>Touch</span></h2>
+                    <div className="contact-content">
+                        <p>I'm currently open to new opportunities. Feel free to reach out!</p>
+                        <div className="contact-links">
+                            <a href={`mailto:${email}`} aria-label="Email"><i className="fas fa-envelope"></i></a>
+                            <a href={social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fab fa-github"></i></a>
+                            <a href={social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+                            <a href={social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+        
+        const Footer = ({ name }) => (
+            <footer className="footer">
+                <div className="container">
+                    <p>&copy; {new Date().getFullYear()} {name}. All Rights Reserved.</p>
+                </div>
+            </footer>
+        );
+
+
+        const App = () => {
+            return (
+                <div>
+                    <Header name={portfolioData.name} title={portfolioData.title} />
+                    <main>
+                        <About content={portfolioData.about} />
+                        <Projects projects={portfolioData.projects} />
+                        <Contact email={portfolioData.contact.email} social={portfolioData.contact.social} />
+                    </main>
+                    <Footer name={portfolioData.name} />
+                </div>
+            );
+        };
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+
+    </script>
+
+</body>
+</html>
